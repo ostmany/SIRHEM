@@ -48,14 +48,16 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Logueate para iniciar sesión</p>
-        <form action="<?php echo base_url()?>Inicio/login" method="post">
+        <form action="<?php echo base_url()?>Inicio/login" method="post" data-toggle="validator" role="form">
           <div class="form-group has-feedback">
-            <input type="text" id="username" name="username" class="form-control" placeholder="Usuario">
+            <input type="text" id="username" name="username" class="form-control" placeholder="Usuario" required>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
+			<div class="help-block with-errors"></div>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+			<div class="help-block with-errors"></div>
           </div>
           <div class="row">
             <div class="col-xs-12">
@@ -66,6 +68,6 @@
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 
-    
+	<script src="<?php echo base_url();?>resources/bootstrap-validator-master/dist/validator.min.js"></script>
   </body>
 </html>

@@ -36,12 +36,14 @@ class Inicio extends CI_Controller {
 			$resultado=$this->inicio_model->login($username,$password);
 			if($resultado["validar"]==TRUE){
 				$this->session->set_userdata("logueado",true);
-				echo "usuario correcto";
-				header('refresh:2; url='.base_url());
+				header('refresh:0;url='.base_url());
+				//echo "usuario correcto";
+				//header('refresh:2; url='.base_url());
 			}
 			else{
-				echo "usuario incorrecto";
-				header('refresh:2; url='.base_url());
+				header('refresh:0;url='.base_url());
+				//echo "usuario incorrecto";
+				//header('refresh:2; url='.base_url());
 			}
 		}
 		else{

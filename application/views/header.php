@@ -290,7 +290,7 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="<?php echo base_url();?>inicio/cerrarSesion" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="<?php echo base_url();?>inicio/cerrarSesion" class="btn btn-default btn-flat">Cerrar SesiÃ³n</a>
                     </div>
                   </li>
                 </ul>
