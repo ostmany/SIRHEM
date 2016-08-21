@@ -34,23 +34,9 @@ class Rol extends CI_Controller {
 		}
 	}
 	
-	public function login(){
-		extract($_POST);
-		if($username!='' and $password!=''){
-			$resultado=$this->inicio_model->login($username,$password);
-			if($resultado["validar"]==TRUE){
-				$this->session->set_userdata("logueado",true);
-				echo "usuario correcto";
-				header('refresh:2; url='.base_url());
-			}
-			else{
-				echo "usuario incorrecto";
-				header('refresh:2; url='.base_url());
-			}
-		}
-		else{
-			header('refresh:3; url='.base_url());
-		}
-		
+	public function getRoles(){
+		return $this->rol_model->getRoles();
 	}
+
+	
 }

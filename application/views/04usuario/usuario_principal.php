@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="panel" >
 					<div class="panel-heading" style="background-color:green;">
-						<h3 class="panel-title" style="color:white;">Lista</h3> 
+						<h3 class="panel-title" style="color:white;">Lista de Usuarios</h3> 
 					</div>
 					<div class="panel-body">
 						<div class="row">

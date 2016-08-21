@@ -1,24 +1,16 @@
 <?php
 
 Class rol_model extends CI_Model{
-     
-    function usuarios(){
-        return $this->db->get('usuario');
+	     
+    function getSelectRoles(){
+        $datos=$this->db->get('rol');
+		$resultado="<option value='' selected>Seleccione un Rol</option>";
+		if($datos->num_rows()>0){
+			foreach($datos->result_array() as $row){
+				$resultado.="<option value='".$row['IDROL']."'>".$row['NOMBREROL']."</option>";
+			}
+		}
+		return $resultado;
     }
-	
-	function validarUsername($user){
-		$this->db->where("username_perfil",$user);
-		$datos=$this->db->get("perfil");
-		if($datos->num_rows()>0)
-			return "true";
-		else
-			return "false";
-	}
-	function actualizar_ingreso($id_perfil){
-		$this->db->set('ultimo_ingreso_usuario',date('Y-m-d H:i:s'));
-		$this->db->where('id_perfil',$id_perfil);
-		$this->db->update('perfil');
-		return;
-	}
 }
 ?>

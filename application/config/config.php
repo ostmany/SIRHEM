@@ -37,7 +37,7 @@ $config['secure_base_url'] = "https://".$_SERVER['HTTP_HOST']."/SIRHEM/";
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

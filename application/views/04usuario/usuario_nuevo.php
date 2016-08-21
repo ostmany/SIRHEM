@@ -24,36 +24,47 @@
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<form data-toggle="validator" role="form">
+							<?php $attr=array("data-toggle"=>"validator","role"=>"form");
+							echo form_open("usuario/insertar",$attr);?>
+							<!--<form data-toggle="validator" role="form">-->
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="for_name">Rol</label>
-										<input type="text" placeholder="Usuario" class="form-control" required>
+										<select id="idRol" name="idRol" placeholder="Rol" class="form-control" required>
+											<?php echo $roles;?>
+										</select>
+										<div class="help-block with-errors"></div>
 									</div>
 									<div class="form-group">
 										<label for="for_name">Usuario</label>
-										<input type="text" placeholder="Usuario" class="form-control" required>
+										<input type="text" id="username" name="username" placeholder="Usuario" class="form-control" required>
+										<div class="help-block with-errors"></div>
 									</div>
 									
 									<div class="form-group">
 										<label for="for_name">Empleado</label>
-										<input type="text" placeholder="Usuario" class="form-control" required>
+										<select id="idEmpleado" name="idEmpleado" placeholder="Empleado" class="form-control" >
+											<option value=""></option>
+										</select>
+										<div class="help-block with-errors"></div>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="password" data-minlength="6" class="form-control" id="Password" placeholder="Password" required>
+										<label for="for_name">Password</label>
+										<input type="password" data-minlength="6" class="form-control" id="password" name="password" placeholder="Password" required>
 										<div class="help-block">Minimo de 6 caracteres</div>
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" id="RePassword" data-match="#Password" data-match-error="Oops, password no coincide" placeholder="Confirmar Password" required>
+										<label for="for_name">RePassword</label>
+										<input type="password" class="form-control" id="repassword" data-match="#password" data-match-error="Oops, password no coincide" placeholder="Confirmar Password" required>
 										<div class="help-block with-errors"></div>
 									</div>
 									<div class="form-group">
 										<input type="submit" class="btn btn-success form-control" value="Guardar">
 									</div>
 								</div>
-							</form>
+							<?php echo form_close();?>
 						</div>
 					</div>
 				</div>

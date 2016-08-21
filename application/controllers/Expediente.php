@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Usuario extends CI_Controller {
+class Expediente extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,12 +22,11 @@ class Usuario extends CI_Controller {
 		parent::__construct();
 		$this->load->model('usuario_model');
 		$this->load->model('rol_model');
-		
     }
 	
 	public function index(){
 		if($this->session->userdata("logueado")==TRUE){
-			$datos['lista_usuarios']=$this->usuario_model->getListUsuarios();
+			$datos['lista_usuarios']=$this->usuario_model->usuarios();
 			$this->load->view('04usuario/usuario_principal',$datos);
 		}
 		else{
@@ -37,8 +36,8 @@ class Usuario extends CI_Controller {
 	
 	public function nuevo(){
 		if($this->session->userdata("logueado")==TRUE){
-			$datos["roles"]=$this->rol_model->getSelectRoles();
-			//$datos["empleados"]=$this->expediente_model->getExpedientes();
+			$datos["roles"]=$this->rol_model->getRoles();
+			$datos["empleados"]=$this->expediente_model->getExpedientes();
 			$this->load->view('04usuario/usuario_nuevo',$datos);
 		}
 		else{
@@ -49,7 +48,7 @@ class Usuario extends CI_Controller {
 	public function insertar(){
 		if($this->session->userdata("logueado")==TRUE){
 			extract($_POST);
-			if($this->usuario_model->insertar($idRol,$idEmpleado,$username,$password)){
+			if($this->usuario_model->insertar($idRol,$username,$idEmpleado,$password)){
 				echo "Usuario ingresado";
 			}
 			else{
