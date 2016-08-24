@@ -30,21 +30,21 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="for_name">Rol</label>
-										<select id="idRol" name="idRol" placeholder="Rol" class="form-control" required>
+										<select id="idRol" name="idRol" placeholder="Rol" class="form-control" data-error="Debe seleccionar un rol de la lista" required>
 											<?php echo $roles;?>
 										</select>
 										<div class="help-block with-errors"></div>
 									</div>
 									<div class="form-group">
 										<label for="for_name">Usuario</label>
-										<input type="text" id="username" name="username" placeholder="Usuario" class="form-control" required>
+										<input type="text" id="username" name="username" placeholder="Usuario" class="form-control" data-error="Debe escribir el usuario" required>
 										<div class="help-block with-errors"></div>
 									</div>
 									
 									<div class="form-group">
 										<label for="for_name">Empleado</label>
-										<select id="idEmpleado" name="idEmpleado" placeholder="Empleado" class="form-control" >
-											<option value=""></option>
+										<select id="idEmpleado" name="idEmpleado" placeholder="Empleado" class="form-control" data-error="Debe seleccionar un empleado de la lista" required>
+											<?php echo $empleados;?>
 										</select>
 										<div class="help-block with-errors"></div>
 									</div>
@@ -57,7 +57,7 @@
 									</div>
 									<div class="form-group">
 										<label for="for_name">RePassword</label>
-										<input type="password" class="form-control" id="repassword" data-match="#password" data-match-error="Oops, password no coincide" placeholder="Confirmar Password" required>
+										<input type="password" class="form-control" id="repassword" data-match="#password" data-match-error="Error, password no coincide" placeholder="Confirmar Password" required>
 										<div class="help-block with-errors"></div>
 									</div>
 									<div class="form-group">

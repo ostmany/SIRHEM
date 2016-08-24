@@ -22,6 +22,7 @@ class Usuario extends CI_Controller {
 		parent::__construct();
 		$this->load->model('usuario_model');
 		$this->load->model('rol_model');
+		$this->load->model('expediente_model');
 		
     }
 	
@@ -38,7 +39,7 @@ class Usuario extends CI_Controller {
 	public function nuevo(){
 		if($this->session->userdata("logueado")==TRUE){
 			$datos["roles"]=$this->rol_model->getSelectRoles();
-			//$datos["empleados"]=$this->expediente_model->getExpedientes();
+			$datos["empleados"]=$this->expediente_model->getSelectExpedientes();
 			$this->load->view('04usuario/usuario_nuevo',$datos);
 		}
 		else{

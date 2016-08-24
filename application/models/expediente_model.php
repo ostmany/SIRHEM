@@ -3,19 +3,13 @@
 Class expediente_model extends CI_Model{
      
     function getSelectExpedientes(){
-		$this->db->select("E.IDEXPEDIENTE,E.PRIMERNOMBRE,E.SEGUNDONOMBRE,E.PRIMERAPELLIDO,E.SEGUNDAPELLIDO");
-		$this->db->from("expediente as E");
-        $datos=$this->db->get();
-		$resultado='';
-		if($datos->num_rows()>0)
+		$datos=$this->db->get('expediente');
+		$resultado="<option value='' selected>Seleccione un Empleado</option>";
+		if($datos->num_rows()>0){
 			foreach($datos->result_array() as $row){
-				$resultado.='<tr><td>'.$row['IDUSUARIO'].'</td>
-				<td>'.$row['USERUSUARIO'].'</td>
-				<td>'.$row['NOMBREROL'].'</td>
-				<td>'.$row['IDEXPEDIENTE'].'</td>
-				<td><input type="button" value="MODIFICAR"><input type="button" value="ELIMINAR"></td>
-				</tr>';
+				$resultado.="<option value='".$row['IDEXPEDIENTE']."'>".$row['PRIMERNOMBRE']." ".$row['SEGUNDNOMBRE']." ".$row['PRIMERAPELLIDO']." ".$row['SEGUNDAPELLIDO']."</option>";
 			}
+		}
 		return $resultado;
     }
 	

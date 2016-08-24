@@ -38,7 +38,7 @@ Class usuario_model extends CI_Model{
 		$this->db->set("IDROL",$idRol);
 		$this->db->set("IDEXPEDIENTE",$idEmpleado);
 		$this->db->set("USERUSUARIO",$username);
-		$this->db->set("PASSUSUARIO",$password);
+		$this->db->set("PASSUSUARIO",md5($password));
 		$this->db->insert("usuario");
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE){
